@@ -1,7 +1,25 @@
 <?php
-$is_auth = rand(0, 1);
+    $is_auth = rand(0, 1);
 
-$user_name = 'Елена';
+    $user_name = 'Елена';
+
+    $categories = [
+        'Доски и лыжи',
+        'Крепления',
+        'Ботинки',
+        'Одежда',
+        'Инструменты',
+        'Разное'
+    ];
+
+//    $lots = [
+//        '0' => [
+//            'title' => '',
+//            'category' => '',
+//            'price' => '',
+//            'url' => ''
+//        ],
+//    ];
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -53,16 +71,20 @@ $user_name = 'Елена';
         <p class="promo__text">На нашем интернет-аукционе ты найдёшь самое эксклюзивное сноубордическое и горнолыжное снаряжение.</p>
         <ul class="promo__list">
             <!--заполните этот список из массива категорий-->
+            <?php foreach($categories as $value): ?>
             <li class="promo__item promo__item--boards">
-                <a class="promo__link" href="pages/all-lots.html">Имя категории</a>
+                <a class="promo__link" href="pages/all-lots.html"><?=$value; ?></a>
             </li>
+            <?php endforeach; ?>
         </ul>
     </section>
     <section class="lots">
         <div class="lots__header">
             <h2>Открытые лоты</h2>
         </div>
+        
         <ul class="lots__list">
+           
             <!--заполните этот список из массива с товарами-->
             <li class="lots__item lot">
                 <div class="lot__image">
@@ -82,7 +104,9 @@ $user_name = 'Елена';
                     </div>
                 </div>
             </li>
+            
         </ul>
+        
     </section>
 </main>
 </div>
@@ -91,9 +115,11 @@ $user_name = 'Елена';
     <nav class="nav">
         <ul class="nav__list container">
             <!--заполните этот список из массива категорий-->
+            <?php foreach($categories as $value): ?>
             <li class="nav__item">
-                <a href="pages/all-lots.html">Название категории</a>
+                <a href="pages/all-lots.html"><?=$value; ?></a>
             </li>
+            <?php endforeach; ?>
         </ul>
     </nav>
     <div class="main-footer__bottom container">
