@@ -50,6 +50,19 @@
             'url' => 'img/lot-6.jpg'
         ]
     ];
+    
+    // Форматирование цены
+    function format_price($number) {
+        define(limin_num, 1000);
+        $sum = ceil($number); // округляем
+        
+        if ($sum >= limin_num) {
+            $sum = number_format($sum, 0, '.', ' ');
+        }
+        $sum = $sum . ' ' . '&#8381;';
+      
+        return $sum;
+    };
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -126,7 +139,7 @@
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount"><?=$value['price'];?></span>
-                            <span class="lot__cost"><?=$value['price'];?><b class="rub">р</b></span>
+                            <span class="lot__cost"><?=format_price($value['price']); ?></span>
                         </div>
                         <div class="lot__timer timer">
                             12:23
