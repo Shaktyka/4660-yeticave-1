@@ -1,4 +1,5 @@
 <?php
+    date_default_timezone_set("Asia/Yekaterinburg");
 
     // Очистка от опасных тегов
     function esc($str) {
@@ -6,6 +7,17 @@
 
         return $text;
     };
+
+    // Вывод времени до полуночи
+    function get_time() {
+        $cur_time = time();
+        $tom_time = strtotime('Tomorrow');
+        
+        $delta = $tom_time - $cur_time;
+        $time = gmdate('H:i', $delta);
+        return $time;
+    };
+        
 
     // Форматирование цены
     function format_price($number) {
